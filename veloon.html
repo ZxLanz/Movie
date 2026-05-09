@@ -70,6 +70,8 @@
       letter-spacing: -1.5px;
       color: var(--text-strong);
       cursor: pointer;
+      flex-shrink: 0;
+      white-space: nowrap;
     }
 
     .logo span {
@@ -936,11 +938,12 @@
 
     @media (max-width: 400px) {
       .logo {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
       }
 
       .search-box input {
-        width: 90px;
+        width: 100px;
+        font-size: 0.8rem;
       }
 
       .hero-btns {
@@ -955,6 +958,9 @@
       }
     }
   </style>
+  <!-- Adsterra Socialbar -->
+  <script type='text/javascript'
+    src='https://pantomimemailman.com/9d/08/7b/9d087bee02dbeeca2d48da967d2886f3.js'></script>
 </head>
 
 <body>
@@ -995,7 +1001,9 @@
         <p class="hero-desc" id="hero-desc"></p>
         <div class="hero-btns">
           <button class="btn-primary" id="hero-btn">▶ Watch Now</button>
-          <button class="btn-secondary">＋ Watchlist</button>
+          <button class="btn-secondary"
+            onclick="window.open('https://pantomimemailman.com/db9h8zuds?key=57e0a75cf08f864dc337826cfe5ba172', '_blank')">📥
+            Download HD</button>
         </div>
         <div class="hero-meta" id="hero-meta"></div>
         <div class="hero-indicators" id="hero-indicators"></div>
@@ -1020,6 +1028,21 @@
         <button class="cat-btn" data-genre="16" onclick="loadGenre('16')">Anime</button>
       </div>
 
+      <!-- AD SLOT 1 -->
+      <div class="ad-banner" style="background:transparent; border:none; min-height:90px;">
+        <script type="text/javascript">
+          atOptions = {
+            'key': 'b2af9badebe530acc54abe69e0e2b99f',
+            'format': 'iframe',
+            'height': 90,
+            'width': 728,
+            'params': {}
+          };
+        </script>
+        <script type="text/javascript"
+          src="https://pantomimemailman.com/b2af9badebe530acc54abe69e0e2b99f/invoke.js"></script>
+      </div>
+
       <div class="section-header">
         <div class="section-title">Trending This Week</div>
         <span class="see-all" onclick="loadMore('trending/movie/week','Trending')">View All →</span>
@@ -1031,6 +1054,21 @@
         <span class="see-all" onclick="loadMore('movie/now_playing','Bioskop')">View All →</span>
       </div>
       <div class="film-grid" id="grid-nowplaying"></div>
+
+      <!-- AD SLOT 2 -->
+      <div class="ad-banner" style="background:transparent; border:none; min-height:250px;">
+        <script type="text/javascript">
+          atOptions = {
+            'key': 'a218e95f50179e779d8d7405bdaed948',
+            'format': 'iframe',
+            'height': 250,
+            'width': 300,
+            'params': {}
+          };
+        </script>
+        <script type="text/javascript"
+          src="https://pantomimemailman.com/a218e95f50179e779d8d7405bdaed948/invoke.js"></script>
+      </div>
 
       <div class="section-header">
         <div class="section-title">Popular Movies</div>
@@ -1200,7 +1238,8 @@
       setTimeout(() => {
         document.getElementById('hero-title').textContent = m.title || m.name;
         document.getElementById('hero-desc').textContent = m.overview || '';
-        if (m.backdrop_path) hBg.style.backgroundImage = `url(${IMG}w1280${m.backdrop_path})`;
+        const bgPath = (window.innerWidth <= 768 && m.poster_path) ? m.poster_path : m.backdrop_path;
+        if (bgPath) hBg.style.backgroundImage = `url(${IMG}w1280${bgPath})`;
         if (m.poster_path) hImg.src = `${IMG}w500${m.poster_path}`;
 
         const year = (m.release_date || '').slice(0, 4);
@@ -1367,6 +1406,9 @@
     loadGrid('grid-nowplaying', 'movie/now_playing');
     loadGrid('grid-popular', 'movie/popular');
   </script>
+  <!-- Adsterra Popunder -->
+  <script type='text/javascript'
+    src='https://pantomimemailman.com/e2/73/7a/e2737a43670f952e4cc56cdba734d5f7.js'></script>
 </body>
 
 </html>
