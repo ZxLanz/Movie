@@ -901,12 +901,45 @@
         padding: 0 1rem;
       }
 
+      .hero {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: flex-end;
+        align-items: center;
+        height: auto;
+        min-height: 550px;
+        padding-top: 90px;
+      }
+
+      .hero-content {
+        height: auto;
+        padding: 0 1rem 1.5rem;
+        text-align: center;
+        align-items: center;
+      }
+
+      .hero-badge {
+        margin: 0 auto 1.2rem;
+      }
+
+      .hero-meta, .hero-btns {
+        justify-content: center;
+      }
+
       .hero h1 {
-        font-size: 1.9rem;
+        font-size: 1.8rem;
       }
 
       .hero-poster {
-        display: none;
+        display: block;
+        position: relative;
+        right: auto;
+        top: auto;
+        transform: none;
+        width: 140px;
+        height: 210px;
+        margin: 0 auto 1rem;
+        border-radius: 12px;
       }
 
       .nav-links {
@@ -1238,8 +1271,7 @@
       setTimeout(() => {
         document.getElementById('hero-title').textContent = m.title || m.name;
         document.getElementById('hero-desc').textContent = m.overview || '';
-        const bgPath = (window.innerWidth <= 768 && m.poster_path) ? m.poster_path : m.backdrop_path;
-        if (bgPath) hBg.style.backgroundImage = `url(${IMG}w1280${bgPath})`;
+        if (m.backdrop_path) hBg.style.backgroundImage = `url(${IMG}w1280${m.backdrop_path})`;
         if (m.poster_path) hImg.src = `${IMG}w500${m.poster_path}`;
 
         const year = (m.release_date || '').slice(0, 4);
