@@ -1295,6 +1295,7 @@
     function openPlayer(raw) {
       const m = typeof raw === 'string' ? JSON.parse(raw) : raw;
       currentMovie = m;
+      window.history.pushState({ filmId: m.id }, '', `?film=${m.id}`);
       currentServerIdx = 0;
       document.querySelectorAll('.srv-btn').forEach((b, i) => b.classList.toggle('active', i === 0));
 
@@ -1355,6 +1356,7 @@
       document.getElementById('homepage').style.display = 'block';
       document.getElementById('player-page').classList.remove('active');
       document.getElementById('player-iframe').src = '';
+      window.history.pushState({}, '', window.location.pathname);
       window.scrollTo(0, 0);
     }
 
