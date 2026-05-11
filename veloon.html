@@ -1437,6 +1437,15 @@
     loadGrid('grid-trending', 'trending/movie/week');
     loadGrid('grid-nowplaying', 'movie/now_playing');
     loadGrid('grid-popular', 'movie/popular');
+
+    // Handle deep links (e.g. ?film=1234)
+    const urlParams = new URLSearchParams(window.location.search);
+    const filmId = urlParams.get('film');
+    if (filmId) {
+      tmdb(`movie/${filmId}`).then(m => {
+        if (m && m.id) openPlayer(m);
+      }).catch(e => console.error("Film ID from URL not found"));
+    }
   </script>
   <!-- Adsterra Popunder -->
   <script type='text/javascript'
